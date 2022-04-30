@@ -14,9 +14,9 @@ import org.koin.dsl.module
 object MainModule {
 
     fun create(): Module = module {
+
         factory { ViewModel(get()) }
         factory { Interactor(get(), get()) }
-        factory { Repository(get()) }
         single {
             Room.databaseBuilder(get(), DataBase::class.java, "dao")
                 .build()

@@ -9,29 +9,36 @@ import com.example.testapplication.models.Rates
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class ViewModel(private val interactor: Interactor) : ViewModel() {
+class ViewModel(
+    private val interactor: Interactor
+) : ViewModel() {
     val data = MutableLiveData<List<Rates>>()
-    val dataDb = MutableLiveData<List<Rates>>()
 
-  init{
+    init {
         viewModelScope.launch {
             try {
-                data.value = interactor.loadFromInteractor()
+                interactor.loadFromInteractor()
+
+                Log.e("###", "init bloc")
+
             } catch (e: Exception) {
                 Log.e("huina", "${e.message}")
             }
         }
     }
 
-    fun getData() {
+    fun loadData() {
         viewModelScope.launch {
             try {
                 interactor.getFromInteractor().collect {
-                    dataDb.value = it
+                    data.value = it
+                    Log.e("###", "load data")
                 }
             } catch (e: Exception) {
                 Log.e("getdata", "${e.message}")
             }
         }
     }
+
+
 }

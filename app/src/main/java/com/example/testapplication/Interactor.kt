@@ -8,14 +8,14 @@ import kotlinx.coroutines.flow.Flow
 
 class Interactor(
     private val localRepository: LocalRepository,
-    private val repository: Repository,
+    private val remoteRepository: RemoteRepository,
 ) {
     suspend fun getFromInteractor(): Flow<List<Rates>> {
         return localRepository.getRoomLocalRepos()
     }
 
     suspend fun loadFromInteractor(): List<Rates> {
-        val rates = repository.loadFromRemoteRepos()
+        val rates = remoteRepository.loadFromRemoteRepos()
         localRepository.insertLocalRepos(rates)
         return rates
     }

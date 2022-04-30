@@ -12,9 +12,8 @@ object RatesConvertor {
             CAD = rates.CAD,
             PLN = rates.PLN,
             MXN = rates.MXN,
-            id = rates.id!!
 
-        )
+            )
 
     fun fromDatabase(entity: RatesEntity): Rates = Rates(
         USD = entity.USD,
@@ -22,6 +21,5 @@ object RatesConvertor {
         CAD = entity.CAD,
         PLN = entity.PLN,
         MXN = entity.MXN,
-        id = entity.id
     )
 }
