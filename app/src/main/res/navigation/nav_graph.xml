@@ -9,7 +9,14 @@
         android:id="@+id/mainFragment"
         android:name="com.example.testapplication.ui.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <argument
+            android:name="arg"
+            app:argType="com.example.testapplication.models.Rates" />
+        <action
+            android:id="@+id/action_mainFragment_to_lastFragment"
+            app:destination="@id/lastFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.testapplication.ui.SplashFragment"
@@ -17,5 +24,13 @@
         <action
             android:id="@+id/action_splashFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lastFragment"
+        android:name="com.example.testapplication.ui.LastFragment"
+        android:label="LastFragment" >
+        <argument
+            android:name="args"
+            app:argType="com.example.testapplication.models.Rates" />
     </fragment>
 </navigation>

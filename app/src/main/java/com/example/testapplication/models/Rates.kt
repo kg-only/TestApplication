@@ -1,7 +1,10 @@
 package com.example.testapplication.models
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Rates (
 
     @SerializedName("USD" ) var USD : Double? = null,
@@ -10,4 +13,4 @@ data class Rates (
     @SerializedName("PLN" ) var PLN : Double? = null,
     @SerializedName("MXN" ) var MXN : Double? = null
 
-)
+):Parcelable

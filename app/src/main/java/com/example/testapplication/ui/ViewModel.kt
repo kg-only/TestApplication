@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 class ViewModel(
     private val interactor: Interactor
 ) : ViewModel() {
-    val data = MutableLiveData<List<Rates>>()
+    private val data = MutableLiveData<List<Rates>>()
 
     init {
         viewModelScope.launch {
@@ -27,7 +27,7 @@ class ViewModel(
         }
     }
 
-    fun loadData() {
+    fun loadData(): MutableLiveData<List<Rates>> {
         viewModelScope.launch {
             try {
                 interactor.getFromInteractor().collect {
@@ -35,9 +35,11 @@ class ViewModel(
                     Log.e("###", "load data")
                 }
             } catch (e: Exception) {
+
                 Log.e("getdata", "${e.message}")
             }
         }
+        return data
     }
 
 
