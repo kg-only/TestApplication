@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.testapplication.ui.MainFragment"
+        android:name="com.example.testapplication.currencyapp.ui.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <argument
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.testapplication.ui.SplashFragment"
+        android:name="com.example.testapplication.currencyapp.ui.SplashFragment"
         android:label="SplashFragment" >
         <action
             android:id="@+id/action_splashFragment_to_mainFragment"
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/lastFragment"
-        android:name="com.example.testapplication.ui.LastFragment"
+        android:name="com.example.testapplication.currencyapp.ui.LastFragment"
         android:label="LastFragment" >
         <argument
             android:name="args"
